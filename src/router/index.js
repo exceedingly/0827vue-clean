@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import About from '../views/About.vue'
 import Book from '../views/Book.vue'
+import PageIndex from '../views/PageIndex.vue'
 Vue.use(VueRouter)
 
   const routes = [
@@ -23,7 +24,11 @@ Vue.use(VueRouter)
   {
     path: '/book',
     component: Book,
-  }
+  },
+    {
+      path: '/pageindex',
+      component: PageIndex,
+    }
 ]
 
 const router = new VueRouter({
