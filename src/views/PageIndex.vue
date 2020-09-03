@@ -1,46 +1,64 @@
 <template>
 
-  <h1>pageindex</h1>
-</template>
+    <div>
 
+        <el-container style="height: 100%; border: 1px solid #eee">
+            <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
+                <el-menu router>
+                    <el-submenu v-for="(item,index) in $router.options.routes" :index="index+''">
+                        <template slot="title"><i class="el-icon-setting"></i>{{index}}-{{item.name}}</template>
+                        <el-menu-item v-for="(item2,index2) in item.children" :index="item2.path">{{item2.name}}</el-menu-item>
+                    </el-submenu>
+                </el-menu>
+            </el-aside>
+            <el-main>
+                <router-view>qq</router-view>
+            </el-main>
+        </el-container>
+        <!--       <el-container>-->
+        <!--         <el-header sty``1le="text-align: right; font-size: 12px">-->
+        <!--           <el-dropdown>-->
+        <!--             <i class="el-icon-setting" style="margin-right: 15px"></i>-->
+        <!--             <el-dropdown-menu slot="dropdown">-->
+        <!--               <el-dropdown-item>查看</el-dropdown-item>-->
+        <!--               <el-dropdown-item>新增</el-dropdown-item>-->
+        <!--               <el-dropdown-item>删除</el-dropdown-item>-->
+        <!--             </el-dropdown-menu>-->
+        <!--           </el-dropdown>-->
+        <!--           <span>王小虎</span>-->
+        <!--         </el-header>-->
+        <!--       </el-container>-->
+
+
+    </div>
+
+</template>
+<style>
+    .el-header {
+        background-color: #B3C0D1;
+        color: #333;
+        line-height: 60px;
+    }
+
+    .el-aside {
+        color: #333;
+    }
+</style>
 
 <script>
-  export default {
-    name: "Book",
-    data(){
-      return {
-        msg: 'Hello vue',
-          books:[
-              {
-                  id: 1,
-                  name:'java',
-                  author:'mcd'
-              },
-              {
-                  id: 2,
-                  name:'Vue',
-                  author:'nn'
-              },
-              {
-                  id: 3,
-                  name:'linux',
-                  author:'xx'
-              }
-          ]
-      }
-    },
-      created(){
-        alert("aaa")
-          const _this = this;
-        axios.get('http://localhost:8181/mcd1').then(function (resp){
-            console.log(resp.data)
-            _this.books=resp.data;
-        })
-
-      }
-  }
+    export default {
+        data() {
+            const item = {
+                date: '2016-05-02',
+                name: '王小虎',
+                address: '上海市普陀区金沙江路 1518 弄'
+            };
+            return {
+                tableData: Array(20).fill(item)
+            }
+        }
+    };
 </script>
 
-<style scoped>
 
-</style>
+

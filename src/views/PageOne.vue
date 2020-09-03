@@ -1,6 +1,6 @@
 <template>
 
-<h1>1</h1>
+<h1>111111111111111111111111111111</h1>
 
 </template>
 
@@ -30,15 +30,7 @@
           ]
       }
     },
-      created(){
-        alert("aaa")
-          const _this = this;
-        axios.get('http://localhost:8181/mcd1').then(function (resp){
-            console.log(resp.data)
-            _this.books=resp.data;
-        })
 
-      }
   }
 </script>
 
